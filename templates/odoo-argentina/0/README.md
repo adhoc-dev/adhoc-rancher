@@ -6,6 +6,8 @@ Single production instance of Odoo ERP.
 
 Production Odoo instance with backup and Rancher health checks.
 
+Pre populated Postgres 9.5 DB with default admin/admin Argentina data.
+
 ### Other
 
 Uses sidekick containers for stack scoped storage.
