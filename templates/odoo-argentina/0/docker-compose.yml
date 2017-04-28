@@ -15,7 +15,7 @@ services:
         volumes_from:
             - dbdata
     odoodata:
-        image: adhoc/odoo-ar:9.0
+        image: unxsio/odoo9ar
         entrypoint: /bin/bash
         labels:
             io.rancher.container.start_once: 'true'
@@ -23,7 +23,7 @@ services:
             - /opt/odoo/data
             - /opt/odoo/custom-addons
     odoo:
-        image: adhoc/odoo-ar:9.0
+        image: unxsio/odoo9ar
         labels:
             io.rancher.sidekicks: odoodata
             io.rancher.scheduler.affinity:container_label: io.rancher.stack_service.name=$${stack_name}/db
@@ -65,7 +65,7 @@ services:
         links:
             - db:db
     odoodata-backup:
-        image: adhoc/odoo-ar:9.0
+        image: unxsio/odoo9ar
         entrypoint: /bin/bash
         labels:
             io.rancher.container.start_once: 'true'
@@ -73,7 +73,7 @@ services:
             - /opt/odoo/data
             - /opt/odoo/custom-addons
     odoo-backup:
-        image: adhoc/odoo-ar:9.0
+        image: unxsio/odoo9ar
         labels:
             io.rancher.sidekicks: odoodata-backup
             io.rancher.scheduler.affinity:container_label: io.rancher.stack_service.name=$${stack_name}/db-backup
